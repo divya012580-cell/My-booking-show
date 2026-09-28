@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Ticket Booking</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f2f2f2;
+            padding: 40px;
+        }
+
+        .booking-box {
+            background: white;
+            width: 350px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #success {
+            display: none;
+            color: green;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="booking-box">
+
+        <h1>🎬 Movie Ticket Booking</h1>
+
+        <h2>Movie: Avatar 2</h2>
+
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <select id="tickets">
+            <option value="">Select Tickets</option>
+            <option value="1">1 Ticket</option>
+            <option value="2">2 Tickets</option>
+            <option value="3">3 Tickets</option>
+            <option value="4">4 Tickets</option>
+        </select>
+
+        <br>
+
+        <button id="bookBtn">Book Ticket</button>
+
+        <div id="success">
+            ✅ Ticket booked successfully!
+            <br>
+            Thank you for booking.
+        </div>
+
+    </div>
+
+    <script>
+
+        document.getElementById("bookBtn").addEventListener("click", function() {
+
+            let name = document.getElementById("name").value;
+            let tickets = document.getElementById("tickets").value;
+
+            if (name === "" || tickets === "") {
+                alert("Please enter your name and select tickets.");
+                return;
+            }
+
+            document.getElementById("success").style.display = "block";
+
+            document.getElementById("bookBtn").disabled = true;
+
+            setTimeout(function() {
+                window.close();
+            }, 3000);
+
+        });
+
+    </script>
+
+</body>
+</html>
